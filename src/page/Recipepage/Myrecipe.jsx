@@ -29,9 +29,6 @@ function Myrecipe() {
                 {Rlist.map((list) => (
                       <Card list={list} getList={getList} />
                 ))}
-
-          
-
         </div>
     );
 }

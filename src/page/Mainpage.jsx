@@ -6,10 +6,8 @@ function Mainpage() {
         <header className="text-[4rem] text-center font-bold">나만의 레시피</header>
         <p className="text-2xl text-center font-bold">자기만의 레시피를 등록하거나 냉장고속 재료들로 레시피를 찾아보아요</p>
         <nav class="text-center mt-16"> 
-            <section className="inline-block bg-gray-300 rounded-lg">
-                    <Link to={'/recipe'} className="p-14 block font-bold tracking-widest inline-block hover:bg-sky-700">레시피</Link>
-                    <Link to={'/refrigerator'} className="p-14 block font-bold tracking-widest inline-block hover:bg-sky-700">냉장고</Link>
-                   
+            <section className="inline-block bg-gray-400 rounded-lg drop-shadow-3xl active:drop-shadow-4xl">
+                    <Link to={'/recipe'} className="p-5 w-[500px] block font-bold tracking-widest inline-block active:text-xl text-white">서비스 이용하기</Link>                   
             </section>
         </nav>
         </div>
