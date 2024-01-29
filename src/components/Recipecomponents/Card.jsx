@@ -7,12 +7,8 @@ import AddIngredientModal from "./AddIngredientModal";
 function Card({ recipe, getList }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedField, setEditedField] = useState(recipe.Field);
-  const [editedDescription, setEditedDescription] = useState(
-    recipe.description
-  );
-  const [editedCookingTime, setEditedCookingTime] = useState(
-    recipe.cooking_time
-  );
+  const [editedDescription, setEditedDescription] = useState(recipe.description);
+  const [editedCookingTime, setEditedCookingTime] = useState(recipe.cooking_time);
   const [showDeleteModal, setDeleteModal] = useState(false);
   const [showIngredientModal, setIngredientModal] = useState(false);
   const [ingredients, setIngredients] = useState([]);
@@ -44,9 +40,11 @@ function Card({ recipe, getList }) {
     setEditedField(recipe.Field);
     setEditedDescription(recipe.description);
     setEditedCookingTime(recipe.cooking_time);
+    e.stopPropagation(); // 이벤트 전파 중단
   };
 
   const handleSaveEdit = () => {
+    e.stopPropagation(); // 이벤트 전파 중단
     const recipeId = recipe.recipe_id;
     const requestData = {
       Field: editedField,
@@ -90,7 +88,7 @@ function Card({ recipe, getList }) {
 
   return (
     <div className="max-w-sm mx-auto mb-4">
-      <div className="p-6 rounded-lg shadow hover:bg-gray-800 bg-gray-400 dark:border-gray-700 dark:hover:bg-gray-700">
+      <div className="p-6 rounded-lg shadow hover:bg-gray-800 bg-gray-400 dark:border-gray-700 dark:hover:bg-gray-700" onClick={() => setDeleteModal(true)}ㅗ>
         {isEditing ? (
           <EditForm
             editedField={editedField}
@@ -124,19 +122,31 @@ function Card({ recipe, getList }) {
           </>
         )}
         {!isEditing && (
+          <>
           <button
             className="inline-block bg-white inline-block px-7 py-2 rounded-3xl drop-shadow-3xl font-bold hover:text-white active:drop-shadow-4xl"
-            onClick={handleEditClick}
+            onClick={(e) => {
+            e.stopPropagation();
+            handleEditClick();
+           
+          }}
           >
-            레시피 수정
+          레시피 수정
           </button>
-        )}
         <button
           className="inline-block bg-white inline-block px-7 py-2 rounded-3xl drop-shadow-3xl font-bold hover:text-white active:drop-shadow-4xl"
-          onClick={() => setIngredientModal(true)}
+          onClick={(e) => {
+          e.stopPropagation();
+          setIngredientModal(true);
+          handleCancelEdit();
+          
+        }}
         >
-          재료 추가
+        재료 추가
         </button>
+
+          </>
+        )}
       </div>
       {showDeleteModal && (
         <DeleteModal

@@ -15,7 +15,9 @@ function AddIngredientModal({ recipeId, onClose, onIngredientAdded }) {
         "https://recipe-backend.fly.dev/api/v1/ingredients",
         { name: ingredientName }
       );
+
       const ingredientId = ingredientResponse.data.data.ingredient_id;
+      console.log(ingredientResponse.data);
 
       // 생성된 재료 ID를 사용하여 레시피에 재료를 추가하는 요청을 보냄
       const response = await axios.post(
