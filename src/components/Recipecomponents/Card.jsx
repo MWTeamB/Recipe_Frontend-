@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import DeleteModal from "./DeleteModal";
+import EditForm from "./EditForm";
 
 function Card({ recipe, getList }) {
   const [isEditing, setIsEditing] = useState(false); // 편집 모드 여부를 나타내는 상태
@@ -110,34 +111,22 @@ function Card({ recipe, getList }) {
   };
 
   return (
-    <div className="grid-item">
+    <div className="max-w-sm mx-auto mb-4">
       <div
-        className="block max-w-sm p-6 rounded-lg shadow hover:bg-gray-800 bg-gray-400 dark:border-gray-700 dark:hover:bg-gray-700"
+        className="p-6 rounded-lg shadow hover:bg-gray-800 bg-gray-400 dark:border-gray-700 dark:hover:bg-gray-700"
         onClick={handleCardClick}
       >
         {isEditing ? (
-          <>
-            <input
-              type="text"
-              value={editedField}
-              onChange={(e) => setEditedField(e.target.value)}
-              className="mb-2 px-3 py-2 rounded-lg border border-gray-300"
-              onClick={(e) => e.stopPropagation()} // 이벤트 전파 중단
-            />
-            <textarea
-              value={editedDescription}
-              onChange={(e) => setEditedDescription(e.target.value)}
-              className="mb-2 px-3 py-2 rounded-lg border border-gray-300"
-              onClick={(e) => e.stopPropagation()} // 이벤트 전파 중단
-            ></textarea>
-            <input
-              type="text"
-              value={editedCookingTime}
-              onChange={(e) => setEditedCookingTime(e.target.value)}
-              className="mb-2 px-3 py-2 rounded-lg border border-gray-300"
-              onClick={(e) => e.stopPropagation()} // 이벤트 전파 중단
-            />
-          </>
+          <EditForm
+            editedField={editedField}
+            setEditedField={setEditedField}
+            editedDescription={editedDescription}
+            setEditedDescription={setEditedDescription}
+            editedCookingTime={editedCookingTime}
+            setEditedCookingTime={setEditedCookingTime}
+            handleCancelEdit={handleCancelEdit}
+            handleSaveEdit={handleSaveEdit}
+          />
         ) : (
           <>
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -159,25 +148,17 @@ function Card({ recipe, getList }) {
             </ul>
           </>
         )}
-        <button
-          className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          onClick={isEditing ? handleSaveEdit : handleEditClick}
-        >
-          {isEditing ? "저장" : "레시피 수정"}
-        </button>
-        {isEditing && (
+        {!isEditing && (
           <button
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700 ms-3"
-            onClick={handleCancelEdit}
+            className="inline-block mt-4 px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onClick={handleEditClick}
           >
-            취소
+            레시피 수정
           </button>
         )}
-        <button className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-          재료추가
-        </button>
+        {/* 재료 추가  */}
       </div>
-      {/* 모달 */}
+      {/* 삭제 모달 */}
       {showDeleteModal && (
         <DeleteModal
           showDeleteModal={showDeleteModal}

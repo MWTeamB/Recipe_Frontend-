@@ -26,9 +26,11 @@ function Myrecipe() {
   return (
     <div>
       <Headerbar />
-      {Rlist.map((recipe) => (
-        <Card key={recipe.recipe_id} recipe={recipe} getList={getList} />
-      ))}
+      <div className="grid grid-cols-auto-fit gap-2 justify-center">
+        {Rlist.map((recipe) => (
+          <Card key={recipe.recipe_id} recipe={recipe} getList={getList} />
+        ))}
+      </div>
     </div>
   );
 }
