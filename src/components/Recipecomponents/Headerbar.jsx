@@ -7,9 +7,6 @@ import { useState } from "react";
 
 function Headerbar() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
    // 모달 열기 함수
    const openModal = () => {
