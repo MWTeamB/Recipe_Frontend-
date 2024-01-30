@@ -40,11 +40,9 @@ function Card({ recipe, getList }) {
     setEditedField(recipe.Field);
     setEditedDescription(recipe.description);
     setEditedCookingTime(recipe.cooking_time);
-    e.stopPropagation(); // 이벤트 전파 중단
   };
 
   const handleSaveEdit = () => {
-    e.stopPropagation(); // 이벤트 전파 중단
     const recipeId = recipe.recipe_id;
     const requestData = {
       Field: editedField,
