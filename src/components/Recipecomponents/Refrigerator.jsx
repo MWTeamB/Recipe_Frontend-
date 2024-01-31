@@ -32,6 +32,17 @@ function Refrigerator({ isOpen, closeModal }) {
         });
     };
   
+
+    const Deleteingredient = (ingredient_id) => {
+      axios.delete(`https://recipe-backend.fly.dev/api/v1/storage/${ingredient_id}`)
+        .then(() => {
+          getList();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
     // 모달이 열려 있을 때만 모달을 렌더링합니다.
     return isOpen ? (
       <div
@@ -83,6 +94,8 @@ function Refrigerator({ isOpen, closeModal }) {
                             </div>
                             <svg class="w-4 h-4 ms-3 rtl:rotate-180 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>
                         </label>
+                        <button onClick={() => Deleteingredient(ingredient.ingredient_id)}>삭제</button>
+
                     </li>
                      ))}
                     </ul>
