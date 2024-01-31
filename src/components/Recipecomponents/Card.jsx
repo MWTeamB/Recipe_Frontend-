@@ -37,7 +37,7 @@ function Card({ recipe, getList }) {
 
   const handleCancelEdit = () => {
     setIsEditing(false);
-    setEditedField(recipe.Field);
+    setEditedField(recipe.field);
     setEditedDescription(recipe.description);
     setEditedCookingTime(recipe.cooking_time);
   };
@@ -82,6 +82,7 @@ function Card({ recipe, getList }) {
 
   const handleIngredientAddition = (ingredient) => {
     setIngredients([...ingredients, ingredient]);
+    getIngredients();
   };
 
   return (
@@ -159,6 +160,7 @@ function Card({ recipe, getList }) {
       {showIngredientModal && (
         <AddIngredientModal
           recipeId={recipe.recipe_id}
+          getList={getList}
           onClose={() => setIngredientModal(false)}
           onIngredientAdded={handleIngredientAddition}
         />

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function AddIngredientModal({ recipeId, onClose, onIngredientAdded }) {
+function AddIngredientModal({ recipeId, onClose, onIngredientAdded}) {
   const [ingredientName, setIngredientName] = useState("");
 
   const handleIngredientNameChange = (e) => {
     setIngredientName(e.target.value);
   };
+
 
   const addIngredientToRecipe = async () => {
     try {
@@ -25,12 +26,13 @@ function AddIngredientModal({ recipeId, onClose, onIngredientAdded }) {
         { ingredient_id: ingredientId }
       );
 
+      
       // 재료가 성공적으로 추가되었음을 알림
       console.log("Ingredient added to recipe:", response.data);
 
       // 재료 추가가 성공하면 추가된 재료 정보를 상위 컴포넌트로 전달
       onIngredientAdded(response.data.data);
-
+      
       // 모달 닫기
       onClose();
     } catch (error) {
