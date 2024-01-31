@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom'
 import Refrigerator from './page/refrigerator'
 import Myrecipe from './page/Recipepage/Myrecipe'
 import MakeRecipe from './page/Recipepage/Makerecipe'
-import Recipes from './page/Recipepage/Recipes'
+
 
 
 function App() {
@@ -17,7 +17,6 @@ function App() {
       <Route path="/myrecipe" element={<Myrecipe />}></Route>
       <Route path="/refrigerator" element={<Refrigerator />}></Route>
       <Route path="/makerecipe" element={<MakeRecipe />}></Route>
-      <Route path="/recipes" element={<Recipes />}></Route>
     </Routes>
     </div> 
   )
