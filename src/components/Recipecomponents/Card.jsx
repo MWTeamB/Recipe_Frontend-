@@ -103,14 +103,14 @@ function Card({ recipe, getList }) {
             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
               {recipe.field}
             </h5>
-            <p className="font-normal text-white dark:text-gray-400">
+            <p className="font-normal text-gray-900">
               요리 설명 : {recipe.description}
             </p>
-            <p className="font-normal text-white dark:text-gray-400">
+            <p className="font-normal text-gray-900">
               요리 시간: {recipe.cooking_time}
             </p>
             <h6 className="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-              재료:
+              재료목록
             </h6>
             <ul>
               {ingredients.map((ingredient) => (
