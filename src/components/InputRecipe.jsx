@@ -52,7 +52,7 @@ function InputRecipe() {
       
     return ( 
         <form onSubmit={onSubmit}>
-        <div className="p-8 rounded-lg shadow w-[700px] hover:bg-gray-800 bg-gray-400 dark:border-gray-700 dark:hover:bg-gray-700">
+        <div className="p-9 rounded-lg shadow w-[700px] hover:bg-gray-800 bg-gray-400 dark:border-gray-700 dark:hover:bg-gray-700">
             <Inputbox placeholder="레시피를 이름을 작성하세요." value={Field}  onChange={(e) => setField(e.target.value)}/>
             <Inputbox placeholder="레시피를 설명해보세요." value={description} onChange={(e) => setdescription(e.target.value)}/>
             <Inputbox placeholder="레시피 조리시간을 작성하세요. Ex 10[분], 1[시간] 시간단위 표기를 꼭 함께 작성 해주세요" value={cooking_time} onChange={(e) => setcooking_time(e.target.value)}/>
