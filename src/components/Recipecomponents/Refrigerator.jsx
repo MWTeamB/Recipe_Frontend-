@@ -1,4 +1,4 @@
-function Modal({ isOpen, closeModal }) {
+function Refrigerator({ isOpen, closeModal }) {
     // 모달이 열려 있을 때만 모달을 렌더링합니다.
     return isOpen ? (
       <div
@@ -51,4 +51,4 @@ function Modal({ isOpen, closeModal }) {
     ) : null;
   }
   
-  export default Modal;
+  export default Refrigerator;

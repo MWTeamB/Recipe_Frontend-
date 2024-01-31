@@ -1,8 +1,7 @@
-import Masonry from "./Card";
 import Menubutton from "../Menubutton";
 import { Link } from "react-router-dom";
-import Modal from "./Modal";
 import { useState } from "react";
+import Refrigerator from "./Refrigerator";
 
 
 function Headerbar() {
@@ -25,7 +24,7 @@ function Headerbar() {
         <Link to={'/makerecipe'}><Menubutton name="레시피 만들기"/></Link>
         
       <button className="bg-gray-400 inline-block px-7 py-2 rounded-3xl drop-shadow-3xl font-bold hover:text-white active:drop-shadow-4xl" onClick={openModal}>내 재료창고</button>
-      <Modal isOpen={isModalOpen} closeModal={closeModal} />
+      <Refrigerator isOpen={isModalOpen} closeModal={closeModal} />
     </div>
     );
 }

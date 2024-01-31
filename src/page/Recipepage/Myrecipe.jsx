@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import Headerbar from "../../components/Recipecomponents/Headerbar";
 import axios from "axios";
 import Card from "../../components/Recipecomponents/Card";
 import { Link } from "react-router-dom";
-import Modal from "../../components/Recipecomponents/Modal";
 import Menubutton from "../../components/Menubutton";
+import Refrigerator from "../../components/Recipecomponents/Refrigerator";
 
 function Myrecipe() {
   const [Rlist, setRlist] = React.useState([]);
@@ -60,7 +59,8 @@ Recipe.field.includes(userInput)
         <input className="rounded-3xl w-[700px] h-[50px] ml-[80px] placeholder:text-gray-500 pl-[14px] focus:outline-none focus:bg-gray-400 focus:placeholder:text-black" type="text" placeholder="원하는 레시피를 검색해보세요" onChange={getValue}/>
         
       <button className="bg-gray-400 inline-block px-7 py-2 rounded-3xl drop-shadow-3xl font-bold hover:text-white active:drop-shadow-4xl" onClick={openModal}>내 재료창고</button>
-      <Modal isOpen={isModalOpen} closeModal={closeModal} />
+      <Refrigerator isOpen={isModalOpen} closeModal={closeModal} />
+
     </div>
       <div className="grid grid-cols-auto-fit gap-2 justify-center">
         {searched.map((recipe) => (
