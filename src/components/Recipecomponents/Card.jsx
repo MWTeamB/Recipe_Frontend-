@@ -6,7 +6,7 @@ import AddIngredientModal from "./AddIngredientModal";
 
 function Card({ recipe, getList }) {
   const [isEditing, setIsEditing] = useState(false);
-  const [editedField, setEditedField] = useState(recipe.Field);
+  const [editedField, setEditedField] = useState(recipe.field);
   const [editedDescription, setEditedDescription] = useState(recipe.description);
   const [editedCookingTime, setEditedCookingTime] = useState(recipe.cooking_time);
   const [showDeleteModal, setDeleteModal] = useState(false);
