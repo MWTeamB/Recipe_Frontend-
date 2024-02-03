@@ -17,13 +17,13 @@ function AddIngredientModal({ recipeId, onClose, onIngredientAdded}) {
         { name: ingredientName }
       );
 
-      const ingredientId = ingredientResponse.data.data.ingredient_id;
+      const ingredientId = ingredientResponse.data.data.id;
       console.log(ingredientResponse.data);
 
       // 생성된 재료 ID를 사용하여 레시피에 재료를 추가하는 요청을 보냄
       const response = await axios.post(
         `https://recipe-backend.fly.dev/api/v1/recipes/${recipeId}/ingredients`,
-        { ingredient_id: ingredientId }
+        { ingredient_id : ingredientId }
       );
 
       

@@ -20,7 +20,7 @@ function Card({ recipe, getList }) {
   const getIngredients = () => {
     axios
       .get(
-        `https://recipe-backend.fly.dev/api/v1/recipes/${recipe.recipe_id}/ingredients`
+        `https://recipe-backend.fly.dev/api/v1/recipes/${recipe.id}/ingredients`
       )
       .then((response) => {
         setIngredients(response.data.data);
@@ -43,7 +43,7 @@ function Card({ recipe, getList }) {
   };
 
   const handleSaveEdit = () => {
-    const recipeId = recipe.recipe_id;
+    const recipeId = recipe.id;
     const requestData = {
       Field: editedField,
       description: editedDescription,
@@ -67,7 +67,7 @@ function Card({ recipe, getList }) {
   };
 
   const handleDelete = () => {
-    const recipeId = recipe.recipe_id;
+    const recipeId = recipe.id;
 
     axios
       .delete(`https://recipe-backend.fly.dev/api/v1/recipes/${recipeId}`)
@@ -115,7 +115,7 @@ function Card({ recipe, getList }) {
             </h6>
             <ul>
               {ingredients.map((ingredient) => (
-                <li key={ingredient.ingredient_id}>{ingredient.name}</li>
+                <li key={ingredient.id}>{ingredient.name}</li>
               ))}
             </ul>
           </>
@@ -159,7 +159,7 @@ function Card({ recipe, getList }) {
       )}
       {showIngredientModal && (
         <AddIngredientModal
-          recipeId={recipe.recipe_id}
+          recipeId={recipe.id}
           getList={getList}
           onClose={() => setIngredientModal(false)}
           onIngredientAdded={handleIngredientAddition}
