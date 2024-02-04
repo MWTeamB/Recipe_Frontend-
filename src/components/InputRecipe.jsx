@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Inputbox from "./Recipecomponents/Inputbox";
+import Inputbox from "src/components/Recipecomponents/Inputbox.jsx";
 import axios from "axios";
 
 function InputRecipe() {
