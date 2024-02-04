@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Inputbox({ placeholder, value, onChange }) {
+function UserInputBox({ placeholder, value, onChange }) {
     return ( 
         <input
             placeholder={placeholder}
@@ -12,4 +12,4 @@ function Inputbox({ placeholder, value, onChange }) {
     );
 }
 
-export default Inputbox;
+export default UserInputBox;
