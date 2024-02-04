@@ -1,7 +1,7 @@
 import Headerbar from "../../components/Recipecomponents/Headerbar";
 import InputRecipe from "../../components/InputRecipe";
 
-function MakeRecipe() {
+function MakeRecipepage() {
 
   return (
     <>
@@ -14,4 +14,4 @@ function MakeRecipe() {
   );
 }
 
-export default MakeRecipe;
+export default MakeRecipepage;
